@@ -1,53 +1,65 @@
-// Definir una funcion para agregar un nuevo instrumento a la lista
-function agregarInstrumento(lista, nombre, tipo) {
-    lista.push({ nombre: nombre, tipo: tipo });
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const instrumentosContainer = document.getElementById('instrumentos');
+    const carritoContainer = document.getElementById('carrito');
 
-// Definir una funcion para listar todos los instrumentos
-function listarInstrumentos(lista) {
-    console.log("Lista de instrumentos:");
-    for (let i = 0; i < lista.length; i++) {
-        console.log("Nombre:", lista[i].nombre, "- Tipo:", lista[i].tipo);
+    function agregarAlCarrito(nombre, tipo) {
+        const instrumento = { nombre: nombre, tipo: tipo };
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carrito.push(instrumento);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarCarrito();
     }
-}
 
-// Definir una funcion para buscar un instrumento por su tipo
-function buscarInstrumentoPorTipo(lista, tipo) {
-    const encontrados = [];
-    for (let i = 0; i < lista.length; i++) {
-        if (lista[i].tipo.toLowerCase() === tipo.toLowerCase()) {
-            encontrados.push(lista[i]);
-        }
+    function eliminarDelCarrito(index) {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carrito.splice(index, 1);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarCarrito();
     }
-    return encontrados.length ? encontrados : null; // Retorna null si no se encuentra ningun instrumento del tipo especificado
-}
 
-// Array de instrumentos
-const instrumentos = [
-    { nombre: "Guitarra", tipo: "Cuerda" },
-    { nombre: "Batería", tipo: "Percusión" },
-    { nombre: "Teclado", tipo: "Teclado" }
-];
+    function actualizarCarrito() {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carritoContainer.innerHTML = '';
+        carrito.forEach((instrumento, index) => {
+            const instrumentoDiv = document.createElement('div');
+            instrumentoDiv.textContent = `${instrumento.nombre} - ${instrumento.tipo}`;
 
-// Solicitar al usuario que ingrese nuevos instrumentos hasta que decida salir
-let continuar = true;
-while (continuar) {
-    const nombre = prompt("Ingrese el nombre del nuevo instrumento:");
-    const tipo = prompt("Ingrese el tipo del nuevo instrumento:");
-    agregarInstrumento(instrumentos, nombre, tipo);
-    const respuesta = prompt("¿Desea ingresar otro instrumento? (s/n)");
-    continuar = respuesta.toLowerCase() === 's';
-}
+            const botonEliminar = document.createElement('button');
+            botonEliminar.textContent = 'Eliminar';
+            botonEliminar.addEventListener('click', () => {
+                eliminarDelCarrito(index);
+                alert('Instrumento eliminado del carrito');
+            });
 
-// Listar todos los instrumentos
-listarInstrumentos(instrumentos);
+            instrumentoDiv.appendChild(botonEliminar);
+            carritoContainer.appendChild(instrumentoDiv);
+        });
+    }
 
-// Buscar instrumentos por tipo
-const tipoBuscado = "cuerda";
-const instrumentosEncontrados = buscarInstrumentoPorTipo(instrumentos, tipoBuscado);
-if (instrumentosEncontrados) {
-    console.log("Instrumentos encontrados de tipo", tipoBuscado + ":");
-    listarInstrumentos(instrumentosEncontrados);
-} else {
-    console.log("No se encontraron instrumentos del tipo", tipoBuscado);
-}
+    const instrumentos = [
+        { nombre: "Guitarra", tipo: "Cuerda" },
+        { nombre: "Batería", tipo: "Percusión" },
+        { nombre: "Teclado", tipo: "Teclado" },
+        { nombre: "Saxofón", tipo: "Viento" },
+        { nombre: "Violín", tipo: "Cuerda" },
+        { nombre: "Trompeta", tipo: "Viento" }
+    ];
+
+    instrumentos.slice(0, 6).forEach(instrumento => {
+        const tarjeta = document.createElement('div');
+        tarjeta.classList.add('instrumento');
+        tarjeta.innerHTML = `<h3>${instrumento.nombre}</h3><p>${instrumento.tipo}</p>`;
+        
+        const botonAgregar = document.createElement('button');
+        botonAgregar.textContent = 'Agregar';
+        botonAgregar.addEventListener('click', () => {
+            agregarAlCarrito(instrumento.nombre, instrumento.tipo);
+            alert('Instrumento agregado al carrito');
+        });
+
+        tarjeta.appendChild(botonAgregar);
+        instrumentosContainer.appendChild(tarjeta);
+    });
+
+    actualizarCarrito();
+});

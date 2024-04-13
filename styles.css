@@ -1,0 +1,66 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.instrumentos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.instrumento {
+    background-color: lemonchiffon;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px;
+    width: calc(33.33% - 40px); 
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instrumento:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.instrumento h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #283593; 
+}
+
+.instrumento p {
+    font-size: 16px;
+    color: #757575; 
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.botones button {
+    background-color: yellow; 
+    color: black;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.carrito {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}
