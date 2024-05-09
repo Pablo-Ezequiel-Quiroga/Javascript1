@@ -21,6 +21,14 @@
     <script>
         let carritoProductos = [];
         document.addEventListener("DOMContentLoaded", function() {
+            // Mensaje de bienvenida
+            Swal.fire({
+                icon: 'info',
+                title: '¡Bienvenido!',
+                text: '¡Gracias por visitar nuestra tienda de instrumentos musicales!',
+                confirmButtonText: 'Aceptar'
+            });
+
             const finalizarCompraBtn = document.getElementById('finalizarCompra');
             
             finalizarCompraBtn.addEventListener('click', function() {
