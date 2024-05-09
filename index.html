@@ -4,62 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instrumentos Musicales</title>
-    <!-- Incluir SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>Instrumentos Musicales</h1>
+        <h1>Instrumentos Musicales Kiss by a rose</h1>
+        <h2>Tienda</h2>
         <div id="instrumentos" class="instrumentos"></div>
-        <h2>Carrito de Compras</h2>
+        <h3>Carrito de Compras</h3>
         <div id="carrito" class="carrito"></div>
-        <!-- Botón "Finalizar Compra" -->
         <button id="finalizarCompra">Finalizar Compra</button>
     </div>
-    <!-- Tu script personalizado -->
     <script src="script.js"></script>
-
     <script>
-        // Productos en el carrito
         let carritoProductos = [];
-
-        // Esperar a que el DOM esté listo
         document.addEventListener("DOMContentLoaded", function() {
-            // Seleccionar el botón "Finalizar Compra"
             const finalizarCompraBtn = document.getElementById('finalizarCompra');
             
-            // Agregar un evento de clic al botón
             finalizarCompraBtn.addEventListener('click', function() {
-                // Mostrar el cartel de compra realizada con SweetAlert2
                 Swal.fire({
                     icon: 'success',
                     title: '¡Compra Realizada!',
                     text: 'Tu compra ha sido realizada con éxito.',
                     confirmButtonText: 'Aceptar'
                 }).then((result) => {
-                    // Vaciar el contenido del carrito y limpiar el registro de productos
                     document.getElementById('carrito').innerHTML = '';
                     carritoProductos = [];
                 });
             });
         });
 
-        // Función para agregar un producto al carrito
         function agregarAlCarrito(producto) {
-            // Agregar el producto al registro del carrito
             carritoProductos.push(producto);
-            // Actualizar visualmente el contenido del carrito
             actualizarCarrito();
         }
 
-        // Función para actualizar visualmente el contenido del carrito
         function actualizarCarrito() {
             const carritoDiv = document.getElementById('carrito');
-            // Vaciar el contenido del carrito
             carritoDiv.innerHTML = '';
-            // Recorrer el registro de productos en el carrito y agregarlos al HTML
             carritoProductos.forEach(producto => {
                 const productoDiv = document.createElement('div');
                 productoDiv.textContent = producto.nombre;

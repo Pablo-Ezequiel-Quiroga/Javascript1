@@ -48,7 +48,7 @@ function actualizarCarrito() {
       const instrumentoDiv = document.createElement('div');
       instrumentoDiv.textContent = `${instrumento.nombre} - ${instrumento.tipo} - Precio: $${instrumento.precio}`;
 
-      total += instrumento.precio; // Sumar el precio del instrumento al total
+      total += instrumento.precio;
 
       const botonEliminar = document.createElement('button');
       botonEliminar.textContent = 'Eliminar';
@@ -60,12 +60,9 @@ function actualizarCarrito() {
       carritoContainer.appendChild(instrumentoDiv);
   });
 
-  // Mostrar el total en el carrito
   const totalDiv = document.createElement('div');
   totalDiv.textContent = `Total: $${total}`;
   carritoContainer.appendChild(totalDiv);
-
-
 }
 
 function mostrarInstrumentos(instrumentos) {
@@ -73,8 +70,12 @@ function mostrarInstrumentos(instrumentos) {
   instrumentos.forEach(instrumento => {
       const tarjeta = document.createElement('div');
       tarjeta.classList.add('instrumento');
-      tarjeta.innerHTML = `<h3>${instrumento.nombre}</h3><p>${instrumento.tipo} - Precio: $${instrumento.precio}</p>`;
-      
+      tarjeta.innerHTML = `
+          <img src="${instrumento.imagen}" alt="${instrumento.nombre}">
+          <h3>${instrumento.nombre}</h3>
+          <p>${instrumento.tipo} - Precio: $${instrumento.precio}</p>
+      `;
+
       const botonAgregar = document.createElement('button');
       botonAgregar.textContent = 'Agregar';
       botonAgregar.addEventListener('click', () => {

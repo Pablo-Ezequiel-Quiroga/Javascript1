@@ -1,38 +1,44 @@
 [
   {
-    "nombre": "Guitarra",
-    "tipo": "Cuerda",
-    "precio": 7777
+      "nombre": "Guitarra",
+      "tipo": "Cuerda",
+      "precio": 7777,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQco0qVvjWCZnZOogE9e4TmERaDKSUpsfiemqS-7M1hsQ&s"
   },
   {
-    "nombre": "Batería",
-    "tipo": "Percusión",
-    "precio": 6666
+      "nombre": "Batería",
+      "tipo": "Percusión",
+      "precio": 6666,
+      "imagen": "https://picjj.com/images/2024/05/09/svNZ7.jpg"
   },
   {
-    "nombre": "Teclado",
-    "tipo": "Electrónico",
-    "precio": 400
+      "nombre": "Teclado",
+      "tipo": "Electrónico",
+      "precio": 5555,
+      "imagen": "https://picjj.com/images/2024/05/09/sv8tD.jpg"
   },
   {
-    "nombre": "Violín",
-    "tipo": "Cuerda",
-    "precio": 250
+      "nombre": "Violín",
+      "tipo": "Cuerda",
+      "precio": 4444,
+      "imagen": "https://picjj.com/images/2024/05/09/svTVe.jpg"
   },
   {
-    "nombre": "Bajo",
-  "tipo": "Cuerda",
-  "precio": 250
-},
-{
-  "nombre": "Clarinete",
-    "tipo": "Viento",
-    "precio": 250
-},
-{
-  "nombre": "Piano",
-    "tipo": "Cuerda",
-    "precio": 250
-}
-
+      "nombre": "Bajo",
+      "tipo": "Cuerda",
+      "precio": 3333,
+      "imagen": "https://picjj.com/images/2024/05/09/sv4cq.jpg"
+  },
+  {
+      "nombre": "Clarinete",
+      "tipo": "Viento",
+      "precio": 2222,
+      "imagen": "https://picjj.com/images/2024/05/09/svnH2.jpg"
+  },
+  {
+      "nombre": "Piano",
+      "tipo": "Cuerda",
+      "precio": 1111,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV17pg3qZlJYpmwU7XjTiKBZw5faqMY4gTxI-o2Qxt-g&s"
+  }
 ]

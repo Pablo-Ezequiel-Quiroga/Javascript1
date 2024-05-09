@@ -4,14 +4,22 @@
     padding: 20px;
     background-color: #f2f2f2;
     font-family: Arial, sans-serif;
+    background-color: #B03A2E;
 }
-
+body{
+    background-color: #103558 ;
+}
 .instrumentos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
+h1{
+    color: #04192C;
+}
+h2{
+    color: #04192C;
+}
 .instrumento {
     background-color: lemonchiffon;
     border-radius: 12px;
