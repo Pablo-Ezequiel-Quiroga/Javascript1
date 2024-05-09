@@ -1,0 +1,38 @@
+[
+  {
+    "nombre": "Guitarra",
+    "tipo": "Cuerda",
+    "precio": 7777
+  },
+  {
+    "nombre": "Batería",
+    "tipo": "Percusión",
+    "precio": 6666
+  },
+  {
+    "nombre": "Teclado",
+    "tipo": "Electrónico",
+    "precio": 400
+  },
+  {
+    "nombre": "Violín",
+    "tipo": "Cuerda",
+    "precio": 250
+  },
+  {
+    "nombre": "Bajo",
+  "tipo": "Cuerda",
+  "precio": 250
+},
+{
+  "nombre": "Clarinete",
+    "tipo": "Viento",
+    "precio": 250
+},
+{
+  "nombre": "Piano",
+    "tipo": "Cuerda",
+    "precio": 250
+}
+
+]
